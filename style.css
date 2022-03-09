@@ -48,14 +48,21 @@ body {
 
 .main-image {
   background-image: url(https://cdn.pixabay.com/photo/2020/03/26/10/58/norway-4970080_960_720.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0px -40px;
   height: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 .main-image-title {
   position: relative;
   top: 140px;
   font-size: 60px;
-  font-family: 'Fredoka', sans-serif;
+  font-family: "Times New Roman", Times, serif;
 }
 
 .text {
@@ -65,6 +72,12 @@ body {
 
 .text-container {
   padding: 100px;
+  text-align: justify;
+}
+
+.note-container {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .note {
@@ -73,7 +86,12 @@ body {
   height: 200px;
   margin-top: 50px;
   background: white;
+  border-radius: 100px;
   transition: .5s;
+}
+
+.note-img {
+  width: 98%;
 }
 
 .note:hover {
