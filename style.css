@@ -16,6 +16,7 @@ body {
   position: relative;
   width: 80px;
   height: 80px;
+  margin-left: 100px;
 }
 
 .nav-navigation-container {
@@ -98,9 +99,68 @@ body {
   transform: rotate(180deg);
 }
 
+@keyframes blink {
+  0% { 
+    background-color: #FDE4CF;
+  }
+  20% { 
+    background-color: #5E554D;
+  }
+  40% { 
+    background-color: #DEC8B6;
+  }
+  60% { 
+    background-color: #C4B1A1;
+  }
+  80% { 
+    background-color: #EBD3C0;
+  }
+}
+
 .slider {
   background: #fde4cf;
-  height: 600px;
+  height: 500px;
+  animation: blink 10s infinite;
+}
+
+@keyframes image-app {
+  10% {
+    -webkit-clip-path: polygon(47% 45%, 70% 0%, 63% 41%, 100% 70%, 40% 59%, 30% 100%, 22% 61%, 7% 24%); 
+    clip-path: polygon(47% 45%, 70% 0%, 63% 41%, 100% 70%, 40% 59%, 30% 100%, 22% 61%, 7% 24%);
+  }
+  20% {
+    -webkit-clip-path: polygon(46% 35%, 70% 0%, 75% 46%, 100% 70%, 65% 75%, 30% 100%, 12% 65%, 7% 24%); 
+    clip-path: polygon(46% 35%, 70% 0%, 75% 46%, 100% 70%, 65% 75%, 30% 100%, 12% 65%, 7% 24%);
+  }
+  40% {
+    -webkit-clip-path: polygon(47% 12%, 67% 31%, 93% 15%, 75% 48%, 91% 74%, 43% 59%, 25% 82%, 8% 39%); 
+    clip-path: polygon(47% 12%, 67% 31%, 93% 15%, 75% 48%, 91% 74%, 43% 59%, 25% 82%, 8% 39%);
+  }
+  60% {
+    -webkit-clip-path: polygon(19% 10%, 56% 17%, 93% 15%, 46% 43%, 91% 74%, 54% 69%, 25% 82%, 27% 44%); 
+    clip-path: polygon(19% 10%, 56% 17%, 93% 15%, 46% 43%, 91% 74%, 54% 69%, 25% 82%, 27% 44%);
+  }
+  80% {
+    -webkit-clip-path: polygon(49% 41%, 57% 2%, 61% 40%, 98% 49%, 58% 70%, 52% 98%, 39% 56%, 4% 47%); 
+    clip-path: polygon(49% 41%, 57% 2%, 61% 40%, 98% 49%, 58% 70%, 52% 98%, 39% 56%, 4% 47%);
+  }
+  90% {
+    -webkit-clip-path: polygon(47% 45%, 70% 0%, 63% 41%, 100% 70%, 40% 59%, 30% 100%, 22% 61%, 7% 24%); 
+    clip-path: polygon(47% 45%, 70% 0%, 63% 41%, 100% 70%, 40% 59%, 30% 100%, 22% 61%, 7% 24%);
+  }
+}
+
+.slider-img {
+  background-image: url("https://cdn.pixabay.com/photo/2013/11/28/10/03/river-219972_960_720.jpg");
+  background-repeat: no-repeat;
+  height: 400px;
+  width: 50%;
+  margin-top:50px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: image-app 10s infinite;
+  -webkit-clip-path: polygon(47% 12%, 67% 31%, 93% 15%, 75% 48%, 91% 74%, 43% 59%, 25% 82%, 8% 39%); 
+  clip-path: polygon(47% 12%, 67% 31%, 93% 15%, 75% 48%, 91% 74%, 43% 59%, 25% 82%, 8% 39%);
 }
 
 a {
