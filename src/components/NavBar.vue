@@ -1,64 +1,58 @@
 <template>
     <section id="Nav">
         <!-- Desktop --> 
-        <div class="NavBar">
+        <v-app-bar 
+        v-if="!$vuetify.breakpoint.mobile"
+        elevate-on-scroll
+        fixed
+        flat
+        >
             <v-tabs
               fixed-tabs
               background-color="#28016f"
               dark
             >
-              <v-tab>
-                Option
-              </v-tab>
-              <v-tab>
-                Another Selection
-              </v-tab>
-              <v-tab>
-                Items
-              </v-tab>
-              <v-tab>
-                Another Screen
+              <v-tab 
+              v-for="item in route"
+              :key=item.name
+              @click="$emit('changePage',item.props)"
+              >
+                {{item.name}}
               </v-tab>
             </v-tabs>
-        </div>
+        </v-app-bar>
         <!-- Mobile --> 
         <v-app-bar
         color="deep-purple accent-4"
         dense
         dark
+        fixed
         v-if="$vuetify.breakpoint.mobile"
         >
-            <v-app-bar-nav-icon>
-
-            </v-app-bar-nav-icon>
-
-            <v-spacer></v-spacer>
-
-
-            <v-menu
-                left
-                bottom
+          <v-menu offset-y>
+            <template v-slot:activator="{ on, attrs }">
+              <v-app-bar-nav-icon
+              v-bind="attrs"
+              v-on="on"
+              >
+              </v-app-bar-nav-icon>
+            </template>
+            <v-list
+            flat
             >
-                <template v-slot:activator="{ on, attrs }">
-                <v-btn
-                    icon
-                    v-bind="attrs"
-                    v-on="on"
-                >
-                    <v-icon>mdi-dots-vertical</v-icon>
-                </v-btn>
-                </template>
+              <v-list-item
+                v-for="(item, index) in route"
+                :key="index"
+                @click="$emit('changePage',item.props)"
+              >
+                <v-list-item-title>{{ item.name }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
 
-                <v-list>
-                <v-list-item
-                    v-for="n in 5"
-                    :key="n"
-                    @click="() => {}"
-                >
-                    <v-list-item-title>Option {{ n }}</v-list-item-title>
-                </v-list-item>
-                </v-list>
-            </v-menu>
+          <v-app-title>
+            Nawigacja
+          </v-app-title>
         </v-app-bar>
     </section>
 </template>
@@ -71,7 +65,14 @@ export default {
   data(){
     return{
       icon: mdiArrowDown,
-      
+      route: [
+        {name: 'HomePage', props: 'home'},
+        {name: 'HTML', props: 'html'},
+        {name: 'CSS', props: 'css'},
+        {name: 'JS', props: 'js'},
+        {name: 'VueJS', props: 'vue'},
+        {name: 'React', props: 'react'},
+      ]
     }
   }
 }
@@ -97,5 +98,6 @@ export default {
   }
   .NavBar{
     background: #28016f;
+    width:100%;
   }
 </style>

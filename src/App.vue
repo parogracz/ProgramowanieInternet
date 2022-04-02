@@ -1,8 +1,17 @@
 <template>
   <v-app>
-    <NavBar/>
-    <Header/>
-    <Offers/>
+    <NavBar
+    @changePage="changePage($event)"
+    />
+    <Header
+    v-if="activePage=='home'"
+    />
+    <Offers
+    v-if="activePage=='home'"
+    />
+    <BuildSide
+    v-if="!(activePage=='home')"
+    />
   </v-app>
 </template>
 
@@ -10,6 +19,7 @@
 import NavBar from './components/NavBar.vue';
 import Header from './components/Header.vue';
 import Offers from './components/Offers.vue';
+import BuildSide from './components/BuildSide.vue';
 
 export default {
   name: 'App',
@@ -18,11 +28,17 @@ export default {
     NavBar,
     Header,
     Offers,
+    BuildSide,
   },
 
   data: () => ({
-    //
+    activePage:'home',
   }),
+  methods:{
+    changePage(actual){
+      this.activePage = actual;
+    }
+  }
 };
 </script>
 
@@ -31,5 +47,7 @@ export default {
     font-family: 'Barlow';
     line-height: 1.1;
     letter-spacing: 0.5mm;
+  }
+  .fixed{
   }
 </style>

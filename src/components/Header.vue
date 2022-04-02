@@ -17,6 +17,7 @@
           outlined
           text
           class="header-btn"
+          @click="$vuetify.goTo('#Offers',optionScroll)"
         >
           <v-icon>
             {{icon}}
@@ -44,6 +45,15 @@ export default {
   data(){
     return{
       icon: mdiArrowDown,
+    }
+  },
+  computed: {
+    optionScroll(){
+      return{
+        duration: 500,
+        offset: 0,
+        easing: 'easeInOutCubic',
+      }
     }
   }
 }
