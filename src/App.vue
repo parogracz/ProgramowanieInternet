@@ -9,8 +9,12 @@
     <Offers
     v-if="activePage=='home'"
     />
+    <OfferJS
+    v-if="activePage=='js'"
+    @changePage="changePage('js')"
+    />
     <BuildSide
-    v-if="!(activePage=='home')"
+    v-if="!(activePage=='home') && !(activePage=='js')"
     />
   </v-app>
 </template>
@@ -19,6 +23,7 @@
 import NavBar from './components/NavBar.vue';
 import Header from './components/Header.vue';
 import Offers from './components/Offers.vue';
+import OfferJS from './components/OfferJS.vue';
 import BuildSide from './components/BuildSide.vue';
 
 export default {
@@ -28,6 +33,7 @@ export default {
     NavBar,
     Header,
     Offers,
+    OfferJS,
     BuildSide,
   },
 
