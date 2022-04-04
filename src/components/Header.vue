@@ -29,7 +29,7 @@
       v-if="!$vuetify.breakpoint.mobile"
       >
         <img
-        src="../assets/developer.png"
+        src="@/assets/developer.png"
         class="header-img"
         />
       </v-col>
@@ -38,8 +38,7 @@
 </template>
 
 <script>
-
-import { mdiArrowDown } from '@mdi/js'
+import { mdiArrowDown } from '@mdi/js';
 export default {
   name: 'Header',
   data(){
