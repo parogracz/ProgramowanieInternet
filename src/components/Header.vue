@@ -28,7 +28,7 @@
       cols="6"
       v-if="!$vuetify.breakpoint.mobile"
       >
-        <img
+        <v-img
         src="@/assets/developer.png"
         class="header-img"
         />

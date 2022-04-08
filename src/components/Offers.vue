@@ -75,7 +75,7 @@ export default {
     #Offers{
         text-align: center;
         padding: 50px 10%;
-        background-image: url('../assets/tlo2.png');
+        background-image: url('../assets/tlo2.svg');
         background-position: bottom;
         background-size: 100%;
     }

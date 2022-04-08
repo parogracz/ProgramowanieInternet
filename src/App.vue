@@ -13,8 +13,17 @@
     v-if="activePage=='js'"
     @changePage="changePage('js')"
     />
+    <OfferHTML
+    v-if="activePage=='html'"
+    />
+    <Forms
+    v-if="activePage=='home'"
+    />
+    <Footer
+    v-if="activePage=='home'"
+    />
     <BuildSide
-    v-if="!(activePage=='home') && !(activePage=='js')"
+    v-if="!(activePage=='home') && !(activePage=='js') && !(activePage=='html')"
     />
   </v-app>
 </template>
@@ -24,6 +33,9 @@ import NavBar from './components/NavBar.vue';
 import Header from './components/Header.vue';
 import Offers from './components/Offers.vue';
 import OfferJS from './components/OfferJS.vue';
+import OfferHTML from './components/OfferHTML.vue';
+import Forms from './components/Forms.vue';
+import Footer from './components/Footer.vue';
 import BuildSide from './components/BuildSide.vue';
 
 export default {
@@ -34,6 +46,9 @@ export default {
     Header,
     Offers,
     OfferJS,
+    OfferHTML,
+    Forms,
+    Footer,
     BuildSide,
   },
 
@@ -53,7 +68,5 @@ export default {
     font-family: 'Barlow';
     line-height: 1.1;
     letter-spacing: 0.5mm;
-  }
-  .fixed{
   }
 </style>
