@@ -50,9 +50,9 @@
             </v-list>
           </v-menu>
 
-          <v-app-title>
+          <!-- <v-app-title>
             Nawigacja
-          </v-app-title>
+          </v-app-title> -->
         </v-app-bar>
     </section>
 </template>

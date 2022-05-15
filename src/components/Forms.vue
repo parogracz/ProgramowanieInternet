@@ -1,7 +1,8 @@
 <template>
   <section id="Forms">
+      <h1>Wyślij do siebie maila!<b>_</b></h1>
       <form 
-      @submit.prevent="say"
+      @submit.prevent="sendMail"
       id="sendler"
       ref="form"
       >
@@ -11,6 +12,7 @@
             md="6"
             >
                 <v-text-field
+                    v-model="email.addres"
                     color="black"
                     background-color="white"
                     label="Twój e-mail *"
@@ -25,7 +27,7 @@
             md="6"
             >
                 <v-text-field
-                    v-model="asign"
+                    v-model="email.asign"
                     color="black"
                     background-color="white"
                     label="Podpis"
@@ -41,7 +43,7 @@
             >
                 <v-checkbox
                     color="white"
-                    v-model="agree"
+                    v-model="email.agree"
                     light
                 >
                 <template v-slot:label> <span style="color:white">Chcę aby wysłano mi maila *</span> </template>
@@ -69,13 +71,13 @@
 </template>
 
 <script>
-// import emailjs from 'emailjs-com';
+import axios from "axios";
 export default {
     name: 'Forms',
     data(){
         return{
             forms: false,
-            email: '',
+            email: {addres: '', asign: '', agree: false},
             rules: {
             required: value => !!value || 'Wymagane.',
             email: value => {
@@ -83,37 +85,44 @@ export default {
                 return pattern.test(value) || 'Niepoprawny e-mail.'
                 },
             },
-            asign: '',
-            // mailContent: 'Hi '+ this.asign + '!',
-            agree: false,
         }
     },
     methods:{
-        // sendMail(){
-        //     console.log(this.$refs.form)
-        //     emailjs.send((
-        //         'service_k9gdoge',
-        //         'template_5fz1cf3',
-        //         {name: 'James', note: 'Check'},
-        //         'bIGbmI8-X57F4Qw1g'
-        //     ))
-        //     .then((result) => {
-        //         console.log(result.text)
-        //     },(error) => {
-        //         console.log(error)
-        //     })
-        // },
-        say(){
-            console.log('qwerty')
+        sendMail(){
+            axios({
+                method: 'POST',
+                url: 'https://localhost:44385/api/Mailer',
+                data: this.email,
+                })
+                .then(response => {
+                    alert("Mail wysłany poprawnie! ");
+                    if(response.status==200) window.location.reload();
+                })
+                .catch(error => {
+                    alert("Coś poszło nie tak.. Kod:" + error);
+                });
         }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+    @keyframes return{
+        0% {background: red; display: none}
+        25% {background: white; display: block}
+        50% {background: red; display: none}
+        75% {background: white; display: block}
+        100% {background: red; display: none}
+    }
     #Forms{
         background:#3900A2;
         padding: 40px 20%;
+        font-size: 36px;
+        color: white;
+    }
+    b{
+        animation-name: "return";
+        animation-duration: 2s;
     }
     .v-btn{
         align-self: center;

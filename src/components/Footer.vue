@@ -26,7 +26,7 @@
         </span>
       </v-btn>
       <v-col
-        class=" py-4 text-center white--text footer"
+        class="py-4 text-center white--text footer"
         cols="12"
       >
         {{ new Date().getFullYear() }} — <strong>Programowanie W Internetowe</strong>
