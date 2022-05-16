@@ -2,7 +2,7 @@
   <section id="Forms">
       <h1>Wyślij do siebie maila!<b class="miga">_</b></h1>
       <form 
-      @submit.prevent="sendMail"
+      @submit.prevent="testRule"
       id="sendler"
       ref="form"
       >
@@ -45,6 +45,7 @@
                     color="white"
                     v-model="email.agree"
                     light
+                    :rules="[rules.checkedSure]"
                 >
                 <template v-slot:label> <span style="color:white">Chcę aby wysłano mi maila *</span> </template>
                 </v-checkbox>
@@ -84,10 +85,19 @@ export default {
                 const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
                 return pattern.test(value) || 'Niepoprawny e-mail.'
                 },
+            checkedSure: value => value || 'Pole obowiązkowe!'
             },
         }
     },
     methods:{
+        testRule(){
+            var pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g
+            if(pattern.test(this.email.addres) && this.email.agree && this.email.asign) 
+            {
+                this.sendMail()
+            }
+            else alert("Wypełnij poprawnie formularz!")
+        },
         sendMail(){
             axios({
                 method: 'POST',

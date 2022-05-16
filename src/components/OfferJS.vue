@@ -90,7 +90,7 @@ export default {
                     this.player2.push(param);
                     this.win(this.player2,'gracz2')
                 }
-            console.log(this.lose());
+            this.lose();
             this.turn = !this.turn;
         }
   }
