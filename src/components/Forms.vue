@@ -1,6 +1,6 @@
 <template>
   <section id="Forms">
-      <h1>Wyślij do siebie maila!<b>_</b></h1>
+      <h1>Wyślij do siebie maila!<b class="miga">_</b></h1>
       <form 
       @submit.prevent="sendMail"
       id="sendler"
@@ -91,7 +91,7 @@ export default {
         sendMail(){
             axios({
                 method: 'POST',
-                url: 'https://localhost:44385/api/Mailer',
+                url: 'https://programowaniewinternecieapp.herokuapp.com/api/Mailer',
                 data: this.email,
                 })
                 .then(response => {
@@ -107,12 +107,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    @keyframes return{
-        0% {background: red; display: none}
-        25% {background: white; display: block}
-        50% {background: red; display: none}
-        75% {background: white; display: block}
-        100% {background: red; display: none}
+    @keyframes anim{
+        0% { opacity: 1;}
+        49% { opacity: 1;}
+        50% { opacity: 0;}
+        100% { opacity: 0;}
     }
     #Forms{
         background:#3900A2;
@@ -120,9 +119,10 @@ export default {
         font-size: 36px;
         color: white;
     }
-    b{
-        animation-name: "return";
-        animation-duration: 2s;
+    .miga{        
+        animation-name: anim;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
     }
     .v-btn{
         align-self: center;
