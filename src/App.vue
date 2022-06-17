@@ -19,9 +19,7 @@
     <Forms
     v-if="activePage=='home'"
     />
-    <Footer
-    v-if="activePage=='home'"
-    />
+    <Footer/>
     <BuildSide
     v-if="!(activePage=='home') && !(activePage=='js') && !(activePage=='html')"
     />
