@@ -15,6 +15,7 @@
             <CodeContainer>
 
             <!-- HTML -->    
+                HTML
                 <p v-highlightjs>
                     <code class="html">
                             &lt;marquee class="order"&gt; Naciśnij kontynent &lt;/marquee&gt; <br>

@@ -26,10 +26,9 @@
         </v-card>
 <center>
         <CodeContainer>
-
+            HTML
             <p v-highlightjs>
                 <code class="html">
-                    &lt;div&gt;
                 </code>
             </p>
 
