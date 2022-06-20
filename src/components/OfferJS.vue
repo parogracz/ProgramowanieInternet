@@ -24,10 +24,86 @@
                 ></v-card>
             </v-card>
         </v-card>
+<center>
+        <CodeContainer>
+
+            <p v-highlightjs>
+                <code class="html">
+                    &lt;div&gt;
+                </code>
+            </p>
+
+            CSS
+            <p v-highlightjs>
+                <code class="css">
+                </code>
+            </p> 
+
+            JS
+            <p v-highlightjs>
+                <code class="javascript">
+                    clear() <br>
+                    {<br>
+                    &nbsp;this.player1 = [];<br>
+                    &nbsp;this.player2 = [];<br>
+                    &nbsp;for(let i=1; i&lt;=9; i++) document.getElementById(i).style.backgroundColor='white';<br>
+                    },<br>
+                    win(prop, gracz)<br>
+                    {<br>
+                    &nbsp;this.rule.forEach(winBase => {<br>
+                    &nbsp;&nbsp;let count = 0;<br>
+                    &nbsp;&nbsp;prop.forEach(point => {<br>
+                    &nbsp;&nbsp;&nbsp;winBase.forEach(element => {<br>
+                    &nbsp;&nbsp;&nbsp;if(point == element) count++;<br>
+                    &nbsp;&nbsp;})<br>
+                    &nbsp;&nbsp;if(count == 3)<br>
+                    &nbsp;&nbsp;{<br>
+                    &nbsp;&nbsp;&nbsp;alert('Wygrał '+gracz+'!');<br>
+                    &nbsp;&nbsp;&nbsp;this.clear();<br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;})<br>
+                    return false;<br>
+                    },<br>
+                    lose()<br>
+                    {<br>
+                    &nbsp;if(this.player1.length >= 5 || this.player2.length >= 5)<br>
+                    &nbsp;{<br>
+                    &nbsp;&nbsp;alert('Spróbujcie jeszcze raz!');<br>
+                    &nbsp;&nbsp;this.clear();<br>
+                    &nbsp;}<br>
+                    },<br>
+                    check(param)<br>
+                    {<br>
+                    &nbsp;var field = document.getElementById(param);<br>
+                    &nbsp;let pass = true;<br>
+                    &nbsp;this.player1.forEach(obj => {if(obj === param) pass = false})<br>
+                    &nbsp;this.player2.forEach(obj => {if(obj === param) pass = false})<br>
+                    &nbsp;if(!pass) return; <br>
+                    &nbsp;&nbsp;if(this.turn) <br>
+                    &nbsp;&nbsp;{ <br>
+                    &nbsp;&nbsp;&nbsp;field.style.backgroundColor = 'blue'; <br>
+                    &nbsp;&nbsp;&nbsp;this.player1.push(param); <br>
+                    &nbsp;&nbsp;&nbsp;this.win(this.player1,'gracz1') <br>
+                    &nbsp;&nbsp;} <br>
+                    &nbsp;&nbsp;else <br>
+                    &nbsp;&nbsp;{ <br>
+                    &nbsp;&nbsp;&nbsp;field.style.backgroundColor = 'red'; <br>
+                    &nbsp;&nbsp;&nbsp;this.player2.push(param); <br>
+                    &nbsp;&nbsp;&nbsp;this.win(this.player2,'gracz2') <br>
+                    &nbsp;&nbsp;}<br>
+                    &nbsp;this.lose(); <br>
+                    &nbsp;this.turn = !this.turn; <br>
+                    } <br>
+                </code>
+            </p> 
+
+        </CodeContainer>
+</center>
     </section>
 </template>
 
 <script>
+import CodeContainer from './shared/CodeContainer.vue';
 
 export default {
   name: 'js',
@@ -38,6 +114,9 @@ export default {
     player2: [],
     rule: [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]],
   }),
+  components: {
+    CodeContainer,
+  },
   methods: {
         clear(){
             this.player1 = [];

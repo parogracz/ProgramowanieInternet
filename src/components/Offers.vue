@@ -44,9 +44,9 @@
             </v-col>
             <v-col>
                 <Card
-                :title="'React'"
-                :subtitle="'Framework JavaScript'"
-                :color="'#00D8FF'"
+                :title="'C# / .NET'"
+                :subtitle="'Język używany do rozwiązań servera'"
+                :color="'#c06cfc'"
                 :image="require('../assets/react.png')"
                 />
             </v-col>

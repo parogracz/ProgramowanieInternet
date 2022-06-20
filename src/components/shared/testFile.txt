@@ -1,0 +1,10 @@
+
+                            &lt;marquee class="order"&gt; Naciśnij kontynent &lt;/marquee&gt;
+                            &lt;img src="../assets/world-night.jpg" usemap="#world" width="1200" height="600" alt=""/&gt;
+                            &lt;map name="world" &gt;
+                                &lt;area target=”_blank” shape="rect" coords="100,50,425,250" href="https://pl.wikipedia.org/wiki/Ameryka_P%C3%B3%C5%82nocna" alt="" /&gt;
+                                &lt;area target=”_blank” shape="rect" coords="300,250,500,500" href="https://pl.wikipedia.org/wiki/Ameryka_Po%C5%82udniowa" alt="" /&gt;
+                                &lt;area target=”_blank” shape="rect" coords="560,50,725,180" href="https://pl.wikipedia.org/wiki/Europa" alt="" /&gt;
+                                &lt;area target=”_blank” shape="rect" coords="500,180,800,410" href="https://pl.wikipedia.org/wiki/Afryka" alt="" /&gt;
+                                &lt;area target=”_blank” shape="rect" coords="725,50,1100,220" href="https://pl.wikipedia.org/wiki/Afryka" alt="" /&gt;
+                            &lt;/map&gt;

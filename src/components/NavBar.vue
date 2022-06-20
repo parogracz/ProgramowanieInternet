@@ -71,7 +71,7 @@ export default {
         {name: 'CSS', props: 'css'},
         {name: 'JS', props: 'js'},
         {name: 'VueJS', props: 'vue'},
-        {name: 'React', props: 'react'},
+        {name: 'C# / .NET', props: 'net'},
       ]
     }
   }

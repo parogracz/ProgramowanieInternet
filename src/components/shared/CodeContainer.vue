@@ -52,11 +52,36 @@
                     v-if="open"
                 >
                     <div class="code-paper">
+
                         <slot></slot>
                     </div>
                 </div>
             </transition>
         </div>
+        
+        <!--                    HOW TO USE
+            <CodeContainer>
+
+                HTML  
+                <p v-highlightjs>
+                    <code class="html">
+                        &lt;div&gt;
+                    </code>
+                </p>
+
+                CSS
+                <p v-highlightjs>
+                    <code class="javascript">
+                    </code>
+                </p> 
+
+                JS
+                <p v-highlightjs>
+                    <code class="javascript">
+                    </code>
+                </p> 
+
+            </CodeContainer> -->
        
     </v-container>
 </template>
@@ -88,7 +113,7 @@ export default ({
         min-height: 50px;
         background: #7477d8;
         color: black;
-        text-align: justify;
+        text-align: left;
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
     }
@@ -99,14 +124,9 @@ export default ({
         border-bottom-right-radius: 5px;
         border-bottom-left-radius: 5px;
     }
-    tag{
-        color: #9CDCF0;
-    }
-    prop{
-        color: #C39178;
-    }
-    class{
-        color: #D7983D;
+
+    pre { 
+        margin: 0px;
     }
 
     .code-enter-active,
