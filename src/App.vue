@@ -19,12 +19,15 @@
     <OfferCSS
     v-if="activePage=='css'"
     />
+    <OfferVUE
+    v-if="activePage=='vue'"
+    />
     <Forms
     v-if="activePage=='home'"
     />
     <Footer/>
     <BuildSide
-    v-if="!(activePage=='home') && !(activePage=='js') && !(activePage=='html') && !(activePage=='css')"
+    v-if="!(activePage=='home') && !(activePage=='js') && !(activePage=='html') && !(activePage=='css') && !(activePage=='vue')"
     />
   </v-app>
 </template>
@@ -36,6 +39,7 @@ import Offers from './components/Offers.vue';
 import OfferJS from './components/OfferJS.vue';
 import OfferHTML from './components/OfferHTML.vue';
 import OfferCSS from './components/OfferCSS.vue';
+import OfferVUE from './components/OfferVUE.vue';
 import Forms from './components/Forms.vue';
 import Footer from './components/Footer.vue';
 import BuildSide from './components/BuildSide.vue';
@@ -50,6 +54,7 @@ export default {
     OfferJS,
     OfferHTML,
     OfferCSS,
+    OfferVUE,
     Forms,
     Footer,
     BuildSide,
